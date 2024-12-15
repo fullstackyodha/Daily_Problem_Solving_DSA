@@ -1,4 +1,5 @@
 # RECUSIVE BINARY SEARCH
+# TIME COMPLEXITY: O(logn)
 def binary_search(l: int, r: int, nums: list[int], target: int) -> int:
     if l > r:
         return -1
@@ -17,3 +18,19 @@ def search(nums: list[int], target: int) -> int:
 
 res = search(nums=[1, 2, 3, 4, 5], target=3)
 print(res)
+
+
+# ITERATIVE BINARY SEARCH
+def iterative_binary_search(self, nums: list[int], target: int) -> int:
+    l, r = 0, len(nums) - 1
+
+    while l <= r:
+        m = l + (r - l) // 2
+
+        if nums[m] > target:
+            r = m - 1
+        elif nums[m] < target:
+            l = m + 1
+        else:
+            return m
+    return -1
